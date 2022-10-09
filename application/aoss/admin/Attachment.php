@@ -35,9 +35,6 @@ class Attachment extends Admin
             ->addOrder('id')
             ->addColumns([
                 ['id', 'ID'],
-                ['type', '类型', 'select', $this->type],
-                ['type', '主要模式', 'select', $this->main_type],
-                ['name', '项目名称'],
                 ['token', 'Token'],
                 ['status', '开关', "switch"],
             ])
