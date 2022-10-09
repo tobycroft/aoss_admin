@@ -149,7 +149,7 @@ class Project extends Admin
             // 非超级管理需要验证可选择角色
 
 
-            if (ProjectParamModel::update($data)) {
+            if (ProjectModel::update($data)) {
                 $this->success('编辑成功');
             } else {
                 $this->error('编辑失败');
@@ -157,7 +157,7 @@ class Project extends Admin
         }
 
         // 获取数据
-        $info = ProjectParamModel::where('id', $id)
+        $info = ProjectModel::where('id', $id)
             ->find();
 
         // 使用ZBuilder快速创建表单
@@ -527,7 +527,7 @@ class Project extends Admin
                 $this->error('权限不足，没有可操作的用户');
             }
         }
-        $result = ProjectParamModel::where("id", $id)
+        $result = ProjectModel::where("id", $id)
             ->setField($field, $value);
         if (false !== $result) {
             action_log('Project_param_edit', 'Project_param', $id, UID);
