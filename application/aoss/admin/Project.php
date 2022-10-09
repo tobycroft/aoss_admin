@@ -34,6 +34,10 @@ class Project extends Admin
         $page = $data_list->render();
         return ZBuilder::make('table')
             ->addOrder('id')
+            ->addColumns([
+                ['id', 'ID'],
+                ['type', '类型', 'select', "", "", ["all" => "全部", "local" => "仅本地", "oss" => "仅oss"]],
+            ])
             ->addColumn('key', 'key')
             ->addColumn('val', 'val', 'text.edit')
             ->addColumn('info', '功能说明', 'text.edit')
