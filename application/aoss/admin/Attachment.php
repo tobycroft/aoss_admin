@@ -26,7 +26,7 @@ class Attachment extends Admin
     public function index()
     {
         // 获取排序
-        $order = $this->getOrder();
+        $order = $this->getOrder("id desc");
         $data_list = AttachmentModel::order($order)
             ->paginate();
         $page = $data_list->render();
