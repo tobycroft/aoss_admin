@@ -29,7 +29,6 @@ class Project extends Admin
         $page = $data_list->render();
         return ZBuilder::make('table')
             ->addTopButton("add")
-            ->setPageTitle('列表')
             ->addOrder('id')
             ->addColumns([
                 ['id', 'ID'],
