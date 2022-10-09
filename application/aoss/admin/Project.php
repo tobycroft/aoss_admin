@@ -38,9 +38,6 @@ class Project extends Admin
                 ['id', 'ID'],
                 ['type', '类型', 'select', "", "", ["all" => "本地+OSS", "local" => "仅本地", "oss" => "仅oss"]],
             ])
-            ->addColumn('key', 'key')
-            ->addColumn('val', 'val', 'text.edit')
-            ->addColumn('info', '功能说明', 'text.edit')
             ->setRowList($data_list) // 设置表格数据
             ->setPages($page)
             ->fetch();
