@@ -36,7 +36,7 @@ class Project extends Admin
             ->addOrder('id')
             ->addColumns([
                 ['id', 'ID'],
-                ['type', '类型', 'select', "", "", ["all" => "全部", "local" => "仅本地", "oss" => "仅oss"]],
+                ['type', '类型', 'select', "", "", ["all" => "本地+OSS", "local" => "仅本地", "oss" => "仅oss"]],
             ])
             ->addColumn('key', 'key')
             ->addColumn('val', 'val', 'text.edit')
