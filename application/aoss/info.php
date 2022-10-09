@@ -14,9 +14,9 @@
  */
 return [
     // 模块名[必填]
-    'name' => 'AOSS',
+    'name' => 'aoss',
     // 模块标题[必填]
-    'title' => 'aoss',
+    'title' => 'AOSS',
     // 模块唯一标识[必填]，格式：模块名.开发者标识.module
     'identifier' => 'aoss.aoss.module',
     // 模块图标[选填]
