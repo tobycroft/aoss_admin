@@ -37,7 +37,7 @@ class Project extends Admin
             ->addColumns([
                 ['id', 'ID'],
                 ['type', '类型', 'select', ["all" => "都保存一遍", "local" => "仅本地", "oss" => "仅OSS", "remote" => "存远程"]],
-                ['type', '主题类型', 'select', ["all" => "本地+OSS", "local" => "仅本地", "oss" => "仅OSS"]],
+                ['type', '主要模式', 'select', ["local" => "仅本地", "oss" => "仅OSS"]],
             ])
             ->setRowList($data_list) // 设置表格数据
             ->setPages($page)
