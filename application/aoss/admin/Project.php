@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\aoss\controller;
+namespace app\aoss\admin;
 
 use app\admin\controller\Admin;
 use app\aoss\model\ProjectModel;
