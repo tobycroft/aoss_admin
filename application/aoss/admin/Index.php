@@ -5,7 +5,11 @@ namespace app\aoss\admin;
 
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
-use app\user\model\Role;
+use app\parentschool\model\BalanceRecordModel;
+use app\parentschool\model\ExchangeRecordModel;
+use app\parentschool\model\ParentModel;
+use app\parentschool\model\TransferInModel;
+use app\parentschool\model\TransferRecordModel;
 use think\Db;
 use think\facade\Hook;
 use util\Tree;
@@ -26,13 +30,29 @@ class Index extends Admin
     public function index()
     {
         // 获取排序
-        $order = $this->getOrder();
-// 读取用户数据
-        return ZBuilder::make('table')
-            ->addOrder('id')
-            ->addColumn('key', 'key')
-            ->addColumn('val', 'val', 'text.edit')
-            ->addColumn('info', '功能说明', 'text.edit')
+        $order = $this->getOrder("id desc");
+        $map = $this->getMap();
+        // 读取用户数据
+        $data_list = ParentModel::where($map)
+            ->order($order)
+            ->paginate();
+        $page = $data_list->render();
+        $todaytime = date('Y-m-d H:i:s', strtotime(date("Y-m-d"), time()));
+
+        $num1 = ParentModel::where("date", ">", $todaytime)
+            ->count();
+        $num2 = ParentModel::count();
+        $btn_access = [
+            'title' => '用户地址',
+            'icon' => 'fa fa-fw fa-key',
+//            'class' => 'btn btn-xs btn-default ajax-get',
+            'href' => url('user_address/index', ['search_field' => 'uid', 'keyword' => '__id__'])
+        ];
+
+        return ZBuilder::make('form')
+            ->addStatic('today', '今日注册数量', "", $num1)
+            ->addStatic('today', '全部注册数量', "", $num2)
+            ->hideBtn('submit,back')
             ->fetch();
     }
 
@@ -138,7 +158,9 @@ class Index extends Admin
             // 非超级管理需要验证可选择角色
 
 
-            if (IndexParamModel::update($data)) {
+            if (ParentModel::update($data)) {
+                $user = ParentModel::get($data['id']);
+                // 记录行为
                 $this->success('编辑成功');
             } else {
                 $this->error('编辑失败');
@@ -146,7 +168,7 @@ class Index extends Admin
         }
 
         // 获取数据
-        $info = IndexParamModel::where('id', $id)
+        $info = ParentModel::where('id', $id)
             ->find();
 
         // 使用ZBuilder快速创建表单
@@ -157,7 +179,7 @@ class Index extends Admin
                 ['static', 'username', '用户名', '不可更改'],
                 ['text', 'password', '密码', '必填，6-20位'],
                 ['text', 'share', '共享码', '必填，6-20位'],
-                ['image', 'avatar', '头像'],
+                ['image', 'head_img', '头像'],
             ])
             ->setFormData($info) // 设置表单数据
             ->fetch();
@@ -488,41 +510,24 @@ class Index extends Admin
 
     public function quickEdit($record = [])
     {
+        $id = input('post.pk', '');
+        $id == UID && $this->error('禁止操作当前账号');
         $field = input('post.name', '');
         $value = input('post.value', '');
-        $type = input('post.type', '');
-        $id = input('post.pk', '');
 
-        switch ($type) {
-            // 日期时间需要转为时间戳
-            case 'combodate':
-                $value = strtotime($value);
-                break;
-            // 开关
-            case 'switch':
-                $value = $value == 'true' ? 1 : 0;
-                break;
-            // 开关
-            case 'password':
-                $value = Hash::make((string)$value);
-                break;
-        }
         // 非超级管理员检查可操作的用户
         if (session('user_auth.role') != 1) {
-            $role_list = Role::getChildsId(session('user_auth.role'));
-            $user_list = \app\user\model\User::where('role', 'in', $role_list)
+            $role_list = RoleModel::getChildsId(session('user_auth.role'));
+            $user_list = ParentModel::where('role', 'in', $role_list)
                 ->column('id');
             if (!in_array($id, $user_list)) {
                 $this->error('权限不足，没有可操作的用户');
             }
         }
-        $result = IndexParamModel::where("id", $id)
-            ->setField($field, $value);
-        if (false !== $result) {
-            action_log('Index_param_edit', 'Index_param', $id, UID);
-            $this->success('操作成功');
-        } else {
-            $this->error('操作失败');
-        }
+
+        $config = ParentModel::where('id', $id)
+            ->value($field);
+        $details = '字段(' . $field . ')，原值(' . $config . ')，新值：(' . $value . ')';
+        return parent::quickEdit(['user_edit', 'admin_user', $id, UID, $details]);
     }
 }
