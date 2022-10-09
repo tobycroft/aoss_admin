@@ -12,10 +12,6 @@ use think\facade\Hook;
 use util\Tree;
 
 
-/**
- * 用户默认控制器
- * @package app\user\admin
- */
 class Project extends Admin
 {
     /**
