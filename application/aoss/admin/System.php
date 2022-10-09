@@ -1,7 +1,8 @@
 <?php
 
 
-namespace app\aoss\admin;
+namespace app\aoss\controller;
+
 
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
