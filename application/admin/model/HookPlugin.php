@@ -25,8 +25,7 @@ class HookPlugin extends Model
      */
     public static function enable($plugin = '')
     {
-        return self::where('plugin', $plugin)
-            ->setField('status', 1);
+        return self::where('plugin', $plugin)->setField('status', 1);
     }
 
     /**
@@ -36,8 +35,7 @@ class HookPlugin extends Model
      */
     public static function disable($plugin = '')
     {
-        return self::where('plugin', $plugin)
-            ->setField('status', 0);
+        return self::where('plugin', $plugin)->setField('status', 0);
     }
 
     /**
@@ -63,8 +61,8 @@ class HookPlugin extends Model
                     $name = $description;
                 }
                 $data[] = [
-                    'hook' => $name,
-                    'plugin' => $plugin_name,
+                    'hook'        => $name,
+                    'plugin'      => $plugin_name,
                     'create_time' => request()->time(),
                     'update_time' => request()->time(),
                 ];
@@ -89,8 +87,7 @@ class HookPlugin extends Model
             if (!HookModel::deleteHooks($plugin_name)) {
                 return false;
             }
-            if (false === self::where('plugin', $plugin_name)
-                    ->delete()) {
+            if (false === self::where('plugin', $plugin_name)->delete()) {
                 return false;
             }
         }
@@ -110,11 +107,10 @@ class HookPlugin extends Model
 
             foreach ($plugins as $key => $plugin) {
                 $map = [
-                    'hook' => $hook,
+                    'hook'   => $hook,
                     'plugin' => $plugin
                 ];
-                self::where($map)
-                    ->setField('sort', $key + 1);
+                self::where($map)->setField('sort', $key + 1);
             }
         }
 
