@@ -14,15 +14,15 @@
  */
 return [
     // 模块名[必填]
-    'name' => 'anymodule',
+    'name' => 'aoss',
     // 模块标题[必填]
-    'title' => 'anymodule',
+    'title' => 'aoss',
     // 模块唯一标识[必填]，格式：模块名.开发者标识.module
-    'identifier' => 'anymodule.anymodule.module',
+    'identifier' => 'aoss.aoss.module',
     // 模块图标[选填]
     'icon' => 'fa fa-fw fa-newspaper-o',
     // 模块描述[选填]
-    'description' => '模块名称',
+    'description' => 'AOSS',
     // 开发者[必填]
     'author' => 'YourFather',
     // 版本[必填],格式采用三段式：主版本号.次版本号.修订版本号
