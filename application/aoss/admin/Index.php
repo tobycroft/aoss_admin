@@ -33,15 +33,6 @@ class Index extends Admin
         $order = $this->getOrder("id desc");
         $map = $this->getMap();
         // 读取用户数据
-        $data_list = ParentModel::where($map)
-            ->order($order)
-            ->paginate();
-        $page = $data_list->render();
-        $todaytime = date('Y-m-d H:i:s', strtotime(date("Y-m-d"), time()));
-
-        $num1 = ParentModel::where("date", ">", $todaytime)
-            ->count();
-        $num2 = ParentModel::count();
         $btn_access = [
             'title' => '用户地址',
             'icon' => 'fa fa-fw fa-key',
@@ -50,8 +41,6 @@ class Index extends Admin
         ];
 
         return ZBuilder::make('form')
-            ->addStatic('today', '今日注册数量', "", $num1)
-            ->addStatic('today', '全部注册数量', "", $num2)
             ->hideBtn('submit,back')
             ->fetch();
     }
