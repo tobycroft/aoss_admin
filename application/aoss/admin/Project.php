@@ -28,6 +28,8 @@ class Project extends Admin
             ->paginate();
         $page = $data_list->render();
         return ZBuilder::make('table')
+            ->addTopButton("add")
+            ->setPageTitle('列表')
             ->addOrder('id')
             ->addColumns([
                 ['id', 'ID'],
@@ -37,6 +39,8 @@ class Project extends Admin
                 ['token', 'Token'],
                 ['status', '开关', "switch"],
             ])
+            ->addRightButton('edit') // 添加编辑按钮
+            ->addRightButton('delete') //添加删除按钮
             ->setRowList($data_list) // 设置表格数据
             ->setPages($page)
             ->fetch();
