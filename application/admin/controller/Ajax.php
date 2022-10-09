@@ -198,6 +198,7 @@ class Ajax extends Common
 
         role_auth();
         $menus = MenuModel::getSidebarMenu($module_id, $module, $controller);
+        var_dump($module_id, $module, $controller);
 
         var_dump($menus);
         exit();
