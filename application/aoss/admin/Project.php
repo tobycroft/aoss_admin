@@ -20,6 +20,9 @@ class Project extends Admin
      * @throws \think\Exception
      * @throws \think\exception\DbException
      */
+    public array $type = ["all" => "都保存一遍", "local" => "仅本地", "oss" => "仅OSS", "remote" => "存远程"];
+    public array $main_type = ["local" => "本地", "oss" => "OSS"];
+
     public function index()
     {
         // 获取排序
@@ -32,8 +35,8 @@ class Project extends Admin
             ->addOrder('id')
             ->addColumns([
                 ['id', 'ID'],
-                ['type', '类型', 'select', ["all" => "都保存一遍", "local" => "仅本地", "oss" => "仅OSS", "remote" => "存远程"]],
-                ['type', '主要模式', 'select', ["local" => "本地", "oss" => "OSS"]],
+                ['type', '类型', 'select', $this->type],
+                ['type', '主要模式', 'select', $this->main_type],
                 ['name', '项目名称'],
                 ['token', 'Token'],
                 ['status', '开关', "switch"],
