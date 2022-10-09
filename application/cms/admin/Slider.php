@@ -1,17 +1,11 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\admin;
 
 use app\admin\controller\Admin;
-use app\common\builder\ZBuilder;
 use app\cms\model\Slider as SliderModel;
+use app\common\builder\ZBuilder;
 
 /**
  * 滚动图片控制器
@@ -21,7 +15,6 @@ class Slider extends Admin
 {
     /**
      * 滚动图片列表
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      * @throws \think\exception\DbException
@@ -58,7 +51,6 @@ class Slider extends Admin
 
     /**
      * 新增
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -97,7 +89,6 @@ class Slider extends Admin
     /**
      * 编辑
      * @param null $id 滚动图片id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -142,7 +133,6 @@ class Slider extends Admin
     /**
      * 删除单页
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -154,7 +144,6 @@ class Slider extends Admin
     /**
      * 启用单页
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -166,7 +155,6 @@ class Slider extends Admin
     /**
      * 禁用单页
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -179,7 +167,6 @@ class Slider extends Admin
      * 设置单页状态：删除、禁用、启用
      * @param string $type 类型：delete/enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -193,7 +180,6 @@ class Slider extends Admin
     /**
      * 快速编辑
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function quickEdit($record = [])

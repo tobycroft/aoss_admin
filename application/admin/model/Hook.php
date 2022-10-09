@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\admin\model;
 
@@ -27,7 +21,6 @@ class Hook extends Model
      * 添加钩子
      * @param array $hooks 钩子
      * @param string $plugin_name
-     * @author 蔡伟明 <314013107@qq.com>
      * @return bool
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -42,12 +35,13 @@ class Hook extends Model
                     $name = $description;
                     $description = '';
                 }
-                if (self::where('name', $name)->find()) {
+                if (self::where('name', $name)
+                    ->find()) {
                     continue;
                 }
                 $data[] = [
-                    'name'        => $name,
-                    'plugin'      => $plugin_name,
+                    'name' => $name,
+                    'plugin' => $plugin_name,
                     'description' => $description,
                     'create_time' => request()->time(),
                     'update_time' => request()->time(),
@@ -63,7 +57,6 @@ class Hook extends Model
     /**
      * 删除钩子
      * @param string $plugin_name 钩子名称
-     * @author 蔡伟明 <314013107@qq.com>
      * @return bool
      * @throws \think\Exception
      * @throws \think\exception\PDOException
@@ -71,7 +64,8 @@ class Hook extends Model
     public static function deleteHooks($plugin_name = '')
     {
         if (!empty($plugin_name)) {
-            if (false === self::where('plugin', $plugin_name)->delete()) {
+            if (false === self::where('plugin', $plugin_name)
+                    ->delete()) {
                 return false;
             }
         }

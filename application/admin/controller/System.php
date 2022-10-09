@@ -1,17 +1,11 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\admin\controller;
 
-use app\common\builder\ZBuilder;
 use app\admin\model\Config as ConfigModel;
 use app\admin\model\Module as ModuleModel;
+use app\common\builder\ZBuilder;
 
 /**
  * 系统模块控制器
@@ -22,7 +16,6 @@ class System extends Admin
     /**
      * 系统设置
      * @param string $group 分组
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      * @throws \think\exception\PDOException
@@ -35,7 +28,9 @@ class System extends Admin
 
             if (isset(config('config_group')[$group])) {
                 // 查询该分组下所有的配置项名和类型
-                $items = ConfigModel::where('group', $group)->where('status', 1)->column('name,type');
+                $items = ConfigModel::where('group', $group)
+                    ->where('status', 1)
+                    ->column('name,type');
 
                 foreach ($items as $name => $type) {
                     if (!isset($data[$name])) {
@@ -66,16 +61,18 @@ class System extends Admin
                                 break;
                         }
                     }
-                    ConfigModel::where('name', $name)->update(['value' => $data[$name]]);
+                    ConfigModel::where('name', $name)
+                        ->update(['value' => $data[$name]]);
                 }
             } else {
                 // 保存模块配置
-                if (false === ModuleModel::where('name', $group)->update(['config' => json_encode($data)])) {
+                if (false === ModuleModel::where('name', $group)
+                        ->update(['config' => json_encode($data)])) {
                     $this->error('更新失败');
                 }
                 // 非开发模式，缓存数据
                 if (config('develop_mode') == 0) {
-                    cache('module_config_'.$group, $data);
+                    cache('module_config_' . $group, $data);
                 }
             }
             cache('system_config', null);
@@ -97,12 +94,12 @@ class System extends Admin
             $tab_list = [];
             foreach ($list_group as $key => $value) {
                 $tab_list[$key]['title'] = $value;
-                $tab_list[$key]['url']   = url('index', ['group' => $key]);
+                $tab_list[$key]['url'] = url('index', ['group' => $key]);
             }
 
             if (isset(config('config_group')[$group])) {
                 // 查询条件
-                $map['group']  = $group;
+                $map['group'] = $group;
                 $map['status'] = 1;
 
                 // 数据列表
@@ -150,11 +147,12 @@ class System extends Admin
             } else {
                 // 模块配置
                 $module_info = ModuleModel::getInfoFromFile($group);
-                $config      = $module_info['config'];
-                $trigger     = isset($module_info['trigger']) ? $module_info['trigger'] : [];
+                $config = $module_info['config'];
+                $trigger = isset($module_info['trigger']) ? $module_info['trigger'] : [];
 
                 // 数据库内的模块信息
-                $db_config = ModuleModel::where('name', $group)->value('config');
+                $db_config = ModuleModel::where('name', $group)
+                    ->value('config');
                 $db_config = json_decode($db_config, true);
 
                 // 使用ZBuilder快速创建表单
@@ -174,12 +172,11 @@ class System extends Admin
      * @param string $table 表名
      * @param string $option
      * @param string $key
-     * @author 蔡伟明 <314013107@qq.com>
      * @return bool|string
      */
     private function createLinkagesToken($table = '', $option = '', $key = '')
     {
-        $table_token = substr(sha1($table.'-'.$option.'-'.$key.'-'.session('user_auth.last_login_ip').'-'.UID.'-'.session('user_auth.last_login_time')), 0, 8);
+        $table_token = substr(sha1($table . '-' . $option . '-' . $key . '-' . session('user_auth.last_login_ip') . '-' . UID . '-' . session('user_auth.last_login_time')), 0, 8);
         session($table_token, ['table' => $table, 'option' => $option, 'key' => $key]);
         return $table_token;
     }

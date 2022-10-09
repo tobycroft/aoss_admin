@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\home;
 
@@ -22,7 +16,6 @@ class Column extends Common
     /**
      * 栏目文章列表
      * @param null $id 栏目id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -88,7 +81,6 @@ class Column extends Common
     /**
      * 获取栏目面包屑导航
      * @param $id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function getBreadcrumb($id)

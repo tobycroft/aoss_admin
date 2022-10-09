@@ -1,17 +1,11 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\admin;
 
 use app\admin\controller\Admin;
-use app\common\builder\ZBuilder;
 use app\cms\model\Document as DocumentModel;
+use app\common\builder\ZBuilder;
 use think\Db;
 
 /**
@@ -23,7 +17,6 @@ class Recycle extends Admin
     /**
      * 文档列表
      * @param string $model 内容模型id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      * @throws \think\exception\DbException
@@ -131,7 +124,6 @@ class Recycle extends Admin
      * 还原文档
      * @param null $ids 文档id
      * @param string $table 表名
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function restore($ids = null, $table = '')
     {
@@ -155,7 +147,6 @@ class Recycle extends Admin
      * 彻底删除文档
      * @param null $ids 文档id
      * @param string $table 表名
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */

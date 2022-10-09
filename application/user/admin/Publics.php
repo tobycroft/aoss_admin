@@ -1,18 +1,12 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\user\admin;
 
-use app\common\controller\Common;
-use app\user\model\User as UserModel;
-use app\user\model\Role as RoleModel;
 use app\admin\model\Menu as MenuModel;
+use app\common\controller\Common;
+use app\user\model\Role as RoleModel;
+use app\user\model\User as UserModel;
 use think\facade\Hook;
 
 /**
@@ -23,7 +17,6 @@ class Publics extends Common
 {
     /**
      * 用户登录
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function signin()
@@ -88,7 +81,6 @@ class Publics extends Common
 
     /**
      * 跳转到第一个有权限访问的url
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed|string
      */
     private function jumpUrl()
@@ -132,7 +124,6 @@ class Publics extends Common
 
     /**
      * 退出登录
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function signout()
     {

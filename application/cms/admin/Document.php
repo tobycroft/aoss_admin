@@ -1,19 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\admin;
 
 use app\admin\controller\Admin;
-use app\common\builder\ZBuilder;
 use app\cms\model\Column as ColumnModel;
 use app\cms\model\Document as DocumentModel;
 use app\cms\model\Field as FieldModel;
+use app\common\builder\ZBuilder;
 use think\Db;
 use util\Tree;
 
@@ -25,7 +19,6 @@ class Document extends Admin
 {
     /**
      * 文档列表
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function index()
     {
@@ -65,7 +58,6 @@ class Document extends Admin
      * 添加文档
      * @param int $cid 栏目id
      * @param string $model 模型id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -165,7 +157,6 @@ class Document extends Admin
      * 编辑文档
      * @param null $id 文档id
      * @param string $model 模型id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -256,7 +247,6 @@ class Document extends Admin
      * 删除文档(不是彻底删除，而是移动到回收站)
      * @param null $ids 文档id
      * @param string $table 数据表
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function delete($ids = null, $table = '')
     {
@@ -278,7 +268,6 @@ class Document extends Admin
     /**
      * 启用文档
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -290,7 +279,6 @@ class Document extends Admin
     /**
      * 禁用文档
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -303,7 +291,6 @@ class Document extends Admin
      * 设置文档状态：删除、禁用、启用
      * @param string $type 类型：enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -324,7 +311,6 @@ class Document extends Admin
     /**
      * 快速编辑
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function quickEdit($record = [])

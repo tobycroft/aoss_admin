@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace form\selectGroup;
 
@@ -24,7 +18,6 @@ class Builder
      * @param string $default 默认值
      * @param string $extra_attr 额外属性
      * @param string $extra_class 额外css类名
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function item($name = '', $title = '', $tips = '', $options = [], $default = '', $extra_attr = '', $extra_class = '')

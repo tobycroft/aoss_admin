@@ -1,19 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\user\admin;
 
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
 use app\user\model\Message as MessageModel;
-use app\user\model\User as UserModel;
 use app\user\model\Role as RoleModel;
+use app\user\model\User as UserModel;
 
 /**
  * 消息控制器
@@ -23,7 +17,6 @@ class Message extends Admin
 {
     /**
      * 消息列表
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      * @throws \think\exception\DbException
@@ -59,7 +52,6 @@ class Message extends Admin
 
     /**
      * 新增
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */

@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\install\controller;
 
@@ -23,7 +17,6 @@ class Index extends Controller
 {
     /**
      * 获取入口目录
-     * @author 蔡伟明 <314013107@qq.com>
      */
     protected function initialize() {
         $this->assign('static_dir', 'static/');
@@ -31,7 +24,6 @@ class Index extends Controller
 
     /**
      * 安装首页
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function index()
     {
@@ -51,7 +43,6 @@ class Index extends Controller
 
     /**
      * 步骤二，检查环境
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function step2()
@@ -84,7 +75,6 @@ class Index extends Controller
 
     /**
      * 步骤三，设置数据库连接
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function step3()
@@ -107,7 +97,6 @@ class Index extends Controller
      * 步骤四，创建数据库
      * @param null $db 数据库配置信息
      * @param int $cover 是否覆盖已存在数据库
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function step4($db = null, $cover = 0)
@@ -167,7 +156,6 @@ class Index extends Controller
 
     /**
      * 完成安装
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function complete()

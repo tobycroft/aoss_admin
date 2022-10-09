@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace plugins\HelloWorld\controller;
 
@@ -22,7 +16,6 @@ class Admin extends Common
 {
     /**
      * 插件管理页
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      * @throws \think\exception\DbException
@@ -88,7 +81,6 @@ class Admin extends Common
 
     /**
      * 新增
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function add()
     {
@@ -122,7 +114,6 @@ class Admin extends Common
 
     /**
      * 编辑
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function edit()
     {
@@ -161,7 +152,6 @@ class Admin extends Common
 
     /**
      * 插件自定义方法
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -187,7 +177,6 @@ class Admin extends Common
      * @param string $table
      * @param string $name
      * @param string $age
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -208,7 +197,6 @@ class Admin extends Common
 
     /**
      * 自定义页面
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function testPage()

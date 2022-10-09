@@ -1,23 +1,17 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\admin;
 
 use app\admin\controller\Admin;
-use app\common\builder\ZBuilder;
-use app\cms\model\Model as DocumentModel;
 use app\cms\model\Column as ColumnModel;
 use app\cms\model\Document;
+use app\cms\model\Model as DocumentModel;
+use app\common\builder\ZBuilder;
 use app\user\model\Role as RoleModel;
-use util\Tree;
-use util\File;
 use think\facade\Env;
+use util\File;
+use util\Tree;
 
 /**
  * 栏目控制器
@@ -27,7 +21,6 @@ class Column extends Admin
 {
     /**
      * 栏目列表
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -85,7 +78,6 @@ class Column extends Admin
     /**
      * 新增栏目
      * @param int $pid 父级id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -120,7 +112,7 @@ class Column extends Admin
                 ['text', 'name', '栏目名称', '<span class="text-danger">必填</span>'],
                 ['radio', 'model', '内容模型', '<span class="text-danger">必选</span>', DocumentModel::getTitleList()],
                 ['radio', 'type', '栏目属性', '', ['最终列表栏目', '外部链接'], 0],
-                ['text', 'url', '链接', '可以填写完整的url，如：<code>http://www.dolphinphp.com</code>，也可以填写 <code>模块/控制器/操作</code>，如：<code>cms/index/index</code>'],
+                ['text', 'url', '链接', '可以填写完整的url，如：<code>http://www.thinkphp.cn</code>，也可以填写 <code>模块/控制器/操作</code>，如：<code>cms/index/index</code>'],
                 ['radio', 'target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self'],
 //                ['select', 'index_template', '封面页模板', '可选'],
                 ['select', 'list_template', '列表页模板', '可选，模板目录： <code>cms/view/column</code>', parse_array($template_list)],
@@ -141,7 +133,6 @@ class Column extends Admin
     /**
      * 编辑栏目
      * @param string $id 栏目id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -181,7 +172,7 @@ class Column extends Admin
                 ['text', 'name', '栏目名称', '<span class="text-danger">必填</span>'],
                 ['radio', 'model', '内容模型', '<span class="text-danger">必选</span>', DocumentModel::getTitleList()],
                 ['radio', 'type', '栏目属性', '', ['最终列表栏目', '外部链接'], 0],
-                ['text', 'url', '链接', '可以填写完整的url，如：<code>http://www.dolphinphp.com</code>，也可以填写 <code>模块/控制器/操作</code>，如：<code>cms/index/index</code>'],
+                ['text', 'url', '链接', '可以填写完整的url，如：<code>http://www.thinkphp.cn</code>，也可以填写 <code>模块/控制器/操作</code>，如：<code>cms/index/index</code>'],
                 ['radio', 'target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self'],
 //                ['select', 'index_template', '封面页模板', '可选'],
                 ['select', 'list_template', '列表页模板', '可选，模板目录： <code>cms/view/column</code>', parse_array($template_list)],
@@ -203,7 +194,6 @@ class Column extends Admin
     /**
      * 删除栏目
      * @param null $ids 栏目id
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -232,7 +222,6 @@ class Column extends Admin
     /**
      * 启用栏目
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -244,7 +233,6 @@ class Column extends Admin
     /**
      * 禁用栏目
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -257,7 +245,6 @@ class Column extends Admin
      * 设置栏目状态：删除、禁用、启用
      * @param string $type 类型：enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -272,7 +259,6 @@ class Column extends Admin
     /**
      * 快速编辑
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function quickEdit($record = [])

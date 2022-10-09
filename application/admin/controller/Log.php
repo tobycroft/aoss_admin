@@ -1,16 +1,10 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\admin\controller;
 
-use app\common\builder\ZBuilder;
 use app\admin\model\Log as LogModel;
+use app\common\builder\ZBuilder;
 
 /**
  * 系统日志控制器
@@ -20,7 +14,6 @@ class Log extends Admin
 {
     /**
      * 日志列表
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -44,7 +37,7 @@ class Log extends Admin
                 ['id', '编号'],
                 ['title', '行为名称'],
                 ['username', '执行者'],
-                ['action_ip', '执行IP', 'callback', function($value){
+                ['action_ip', '执行IP', 'callback', function ($value) {
                     return long2ip(intval($value));
                 }],
                 ['module_title', '所属模块'],
@@ -62,13 +55,13 @@ class Log extends Admin
     /**
      * 日志详情
      * @param null $id 日志id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
     public function details($id = null)
     {
-        if ($id === null) $this->error('缺少参数');
+        if ($id === null)
+            $this->error('缺少参数');
         $info = LogModel::getAll(['admin_log.id' => $id]);
         $info = $info[0];
         $info['action_ip'] = long2ip(intval($info['action_ip']));
@@ -77,13 +70,13 @@ class Log extends Admin
         return ZBuilder::make('form')
             ->setPageTitle('编辑') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
-                 ['hidden', 'id'],
-                 ['static', 'title', '行为名称'],
-                 ['static', 'username', '执行者'],
-                 ['static', 'record_id', '目标ID'],
-                 ['static', 'action_ip', '执行IP'],
-                 ['static', 'module_title', '所属模块'],
-                 ['textarea', 'remark', '备注'],
+                ['hidden', 'id'],
+                ['static', 'title', '行为名称'],
+                ['static', 'username', '执行者'],
+                ['static', 'record_id', '目标ID'],
+                ['static', 'action_ip', '执行IP'],
+                ['static', 'module_title', '所属模块'],
+                ['textarea', 'remark', '备注'],
             ])
             ->hideBtn('submit')
             ->setFormData($info) // 设置表单数据

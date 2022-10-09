@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\common\builder;
 
@@ -15,13 +9,11 @@ use think\Exception;
 /**
  * 构建器
  * @package app\common\builder
- * @author 蔡伟明 <314013107@qq.com>
  */
 class ZBuilder extends Common
 {
     /**
      * @var array 构建器数组
-     * @author 蔡伟明 <314013107@qq.com>
      */
     protected static $builder = [];
 
@@ -37,7 +29,6 @@ class ZBuilder extends Common
 
     /**
      * 初始化
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function initialize()
     {}
@@ -46,7 +37,6 @@ class ZBuilder extends Common
      * 创建各种builder的入口
      * @param string $type 构建器名称，'Form', 'Table', 'View' 或其他自定义构建器
      * @param string $action 动作
-     * @author 蔡伟明 <314013107@qq.com>
      * @return table\Builder|form\Builder|aside\Builder
      * @throws Exception
      */
@@ -78,7 +68,6 @@ class ZBuilder extends Common
      * @param string $template 模板文件名
      * @param array  $vars     模板输出变量
      * @param array  $config   模板参数
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function fetch($template = '', $vars = [], $config = [])

@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace form\complexTable;
 
@@ -21,7 +15,6 @@ class Builder
      * @param string $title 标题
      * @param array $data 数据
      * @param bool $header 是否有表头
-     * @author 蔡伟明 <314013107@qq.com>
      * @return array
      */
     public function item($name = '', $title = '', $data = [], $header = false)
@@ -83,7 +76,6 @@ class Builder
      * 分析单元格合并
      * @param $v
      * @return array
-     * @author 蔡伟明 <314013107@qq.com>
      */
     private function parseCell($v)
     {

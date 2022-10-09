@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\admin\controller;
 
@@ -25,11 +19,12 @@ class Index extends Admin
     /**
      * 后台首页
      * @return string
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function index()
     {
-        $admin_pass = Db::name('admin_user')->where('id', 1)->value('password');
+        $admin_pass = Db::name('admin_user')
+            ->where('id', 1)
+            ->value('password');
 
         if (UID == 1 && $admin_pass && Hash::check('admin', $admin_pass)) {
             $this->assign('default_pass', 1);
@@ -39,7 +34,6 @@ class Index extends Admin
 
     /**
      * 清空系统缓存
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function wipeCache()
     {
@@ -71,7 +65,6 @@ class Index extends Admin
 
     /**
      * 个人设置
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function profile()
     {
@@ -88,7 +81,8 @@ class Index extends Admin
             }
 
             $UserModel = new UserModel();
-            if ($user = $UserModel->allowField(['nickname', 'email', 'password', 'mobile', 'avatar'])->update($data)) {
+            if ($user = $UserModel->allowField(['nickname', 'email', 'password', 'mobile', 'avatar'])
+                ->update($data)) {
                 // 记录行为
                 action_log('user_edit', 'admin_user', UID, UID, get_nickname(UID));
                 $this->success('编辑成功');
@@ -98,18 +92,14 @@ class Index extends Admin
         }
 
         // 获取数据
-        $info = UserModel::where('id', UID)->field('password', true)->find();
+        $info = UserModel::where('id', UID)
+            ->field('password', true)
+            ->find();
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
             ->addFormItems([ // 批量添加表单项
-                ['static', 'username', '用户名', '不可更改'],
-                ['text', 'nickname', '昵称', '可以是中文'],
-                ['text', 'email', '邮箱', ''],
-                ['password', 'password', '密码', '必填，6-20位'],
-                ['text', 'mobile', '手机号'],
-                ['image', 'avatar', '头像']
-            ])
+                ['static', 'username', '用户名', '不可更改'], ['text', 'nickname', '昵称', '可以是中文'], ['text', 'email', '邮箱', ''], ['password', 'password', '密码', '必填，6-20位'], ['text', 'mobile', '手机号'], ['image', 'avatar', '头像']])
             ->setFormData($info) // 设置表单数据
             ->fetch();
     }
@@ -119,51 +109,9 @@ class Index extends Admin
      * @return \think\response\Json
      * @throws \think\db\exception\BindParamException
      * @throws \think\exception\PDOException
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function checkUpdate()
     {
-        return json([
-            'update' => '',
-            'auth' => ""
-        ]);
-        $params = config('dolphin.');
-        $params['domain'] = request()->domain();
-        $params['website'] = config('web_site_title');
-        $params['ip'] = $_SERVER['SERVER_ADDR'];
-        $params['php_os'] = PHP_OS;
-        $params['php_version'] = PHP_VERSION;
-        $params['mysql_version'] = db()->query('select version() as version')[0]['version'];
-        $params['server_software'] = $_SERVER['SERVER_SOFTWARE'];
-        $params = http_build_query($params);
-
-        $opts = [
-            CURLOPT_TIMEOUT => 20,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_URL => config('dolphin.product_update'),
-            CURLOPT_USERAGENT => $_SERVER['HTTP_USER_AGENT'],
-            CURLOPT_POST => 1,
-            CURLOPT_POSTFIELDS => $params
-        ];
-
-        // 初始化并执行curl请求
-        $ch = curl_init();
-        curl_setopt_array($ch, $opts);
-        $data = curl_exec($ch);
-        curl_close($ch);
-
-        $result = json_decode($data, true);
-
-        if ($result['code'] == 1) {
-            return json([
-                'update' => '<a class="badge badge-primary" href="http://www.dolphinphp.com/download" target="_blank">有新版本：' . $result["version"] . '</a>',
-                'auth' => $result['auth']
-            ]);
-        } else {
-            return json([
-                'update' => '',
-                'auth' => $result['auth']
-            ]);
-        }
+        return json(['update' => '', 'auth' => "thinkphp"]);
     }
 }

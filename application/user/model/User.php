@@ -1,18 +1,12 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\user\model;
 
-use think\Model;
-use think\helper\Hash;
 use app\user\model\Role as RoleModel;
 use think\Db;
+use think\helper\Hash;
+use think\Model;
 
 /**
  * 后台用户模型
@@ -43,7 +37,6 @@ class User extends Model
      * @param string $username 用户名
      * @param string $password 密码
      * @param bool $rememberme 记住登录
-     * @author 蔡伟明 <314013107@qq.com>
      * @return bool|mixed
      */
     public function login($username = '', $password = '', $rememberme = false)
@@ -105,7 +98,6 @@ class User extends Model
      * 自动登录
      * @param object $user 用户对象
      * @param bool $rememberme 是否记住登录，默认7天
-     * @author 蔡伟明 <314013107@qq.com>
      * @return bool|int
      */
     public function autoLogin($user, $rememberme = false)

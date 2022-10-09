@@ -1,21 +1,15 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\admin;
 
 use app\admin\controller\Admin;
-use app\common\builder\ZBuilder;
-use app\cms\model\Menu as MenuModel;
 use app\cms\model\Column as ColumnModel;
+use app\cms\model\Menu as MenuModel;
 use app\cms\model\Page as PageModel;
-use util\Tree;
+use app\common\builder\ZBuilder;
 use think\Db;
+use util\Tree;
 
 /**
  * 菜单控制器
@@ -26,7 +20,6 @@ class Menu extends Admin
     /**
      * 菜单列表
      * @param null $id 导航id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      * @throws \think\db\exception\DataNotFoundException
@@ -92,7 +85,6 @@ class Menu extends Admin
      * 新增
      * @param null $nid 导航id
      * @param int $pid 菜单父级id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -126,7 +118,7 @@ class Menu extends Admin
                 ['select', 'column', '栏目', '<code>必选</code>', ColumnModel::getTreeList(0, false)],
                 ['select', 'page', '单页', '<code>必选</code>', PageModel::getTitleList()],
                 ['text', 'title', '菜单标题', '<code>必填</code>，只用于区分'],
-                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.dolphinphp.com</code>"],
+                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.thinkphp.cn</code>"],
                 ['text', 'css', 'CSS类', '可选'],
                 ['text', 'rel', '链接关系网（XFN）', '可选，即链接的rel值'],
                 ['radio', 'target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self'],
@@ -142,7 +134,6 @@ class Menu extends Admin
     /**
      * 编辑
      * @param null $id 菜单id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -176,7 +167,7 @@ class Menu extends Admin
                 ['select', 'column', '栏目', '<code>必选</code>', ColumnModel::getTreeList(0, false)],
                 ['select', 'page', '单页', '<code>必选</code>', PageModel::getTitleList()],
                 ['text', 'title', '菜单标题', '<code>必填</code>，只用于区分'],
-                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.dolphinphp.com</code>"],
+                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.thinkphp.cn</code>"],
                 ['text', 'css', 'CSS类', '可选'],
                 ['text', 'rel', '链接关系网（XFN）', '可选，即链接的rel值'],
                 ['radio', 'target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self'],
@@ -193,7 +184,6 @@ class Menu extends Admin
     /**
      * 删除菜单
      * @param null $ids 菜单id
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -209,7 +199,6 @@ class Menu extends Admin
     /**
      * 启用菜单
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -221,7 +210,6 @@ class Menu extends Admin
     /**
      * 禁用菜单
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -234,7 +222,6 @@ class Menu extends Admin
      * 设置菜单状态：删除、禁用、启用
      * @param string $type 类型：delete/enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
@@ -248,7 +235,6 @@ class Menu extends Admin
     /**
      * 快速编辑
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
     public function quickEdit($record = [])

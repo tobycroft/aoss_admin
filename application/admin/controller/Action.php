@@ -1,17 +1,11 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\admin\controller;
 
-use app\common\builder\ZBuilder;
 use app\admin\model\Action as ActionModel;
 use app\admin\model\Module as ModuleModel;
+use app\common\builder\ZBuilder;
 
 /**
  * 行为管理控制器
@@ -21,7 +15,6 @@ class Action extends Admin
 {
     /**
      * 首页
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      * @throws \think\exception\DbException
@@ -31,7 +24,9 @@ class Action extends Admin
         // 查询
         $map = $this->getMap();
         // 数据列表
-        $data_list = ActionModel::where($map)->order('id desc')->paginate();
+        $data_list = ActionModel::where($map)
+            ->order('id desc')
+            ->paginate();
         // 所有模块的名称和标题
         $list_module = ModuleModel::getModule();
 
@@ -56,7 +51,7 @@ class Action extends Admin
                 ['name', '标识'],
                 ['title', '名称'],
                 ['remark', '描述'],
-                ['module', '所属模块', 'callback', function($module, $list_module){
+                ['module', '所属模块', 'callback', function ($module, $list_module) {
                     return isset($list_module[$module]) ? $list_module[$module] : '未知';
                 }, $list_module],
                 ['status', '状态', 'switch'],

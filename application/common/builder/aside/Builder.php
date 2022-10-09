@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\common\builder\aside;
 
@@ -43,7 +37,6 @@ class Builder extends ZBuilder
      * 设置Tab按钮列表
      * @param array $tab_list Tab列表 如：['tab1' => '标题', 'tab2' => '标题2']
      * @param string $curr_tab 当前tab名
-     * @author 蔡伟明 <314013107@qq.com>
      * @return $this
      */
     public function setTabNav($tab_list = [], $curr_tab = '')
@@ -68,7 +61,6 @@ class Builder extends ZBuilder
      * 追加Tab按钮列表
      * @param string $tab tab名称
      * @param string $content tab内容
-     * @author 蔡伟明 <314013107@qq.com>
      * @return $this
      */
     public function addTabNav($tab = '', $content = '')
@@ -85,7 +77,6 @@ class Builder extends ZBuilder
     /**
      * 设置当前tab
      * @param string $tab tab名称
-     * @author 蔡伟明 <314013107@qq.com>
      * @return $this
      */
     public function setCurrTab($tab = '')
@@ -100,7 +91,6 @@ class Builder extends ZBuilder
      * 设置单个tab内容
      * @param string $tab tab名称
      * @param array $content tab内容
-     * @author 蔡伟明 <314013107@qq.com>
      * @return $this
      */
     public function setTabCon($tab = '', $content = [])
@@ -119,7 +109,6 @@ class Builder extends ZBuilder
     /**
      * 一次性设置多个tab内容
      * @param array $content tab内容 ['tab' => ['block1', 'block2'..]]
-     * @author 蔡伟明 <314013107@qq.com>
      * @return $this
      */
     public function setTabCons($content = [])
@@ -135,7 +124,6 @@ class Builder extends ZBuilder
      * 追加tab内容
      * @param string $tab tab名称
      * @param array $content tab内容
-     * @author 蔡伟明 <314013107@qq.com>
      * @return $this
      */
     public function addTabCon($tab = '', $content = [])
@@ -158,7 +146,6 @@ class Builder extends ZBuilder
      * @param string $type 类型：recent/online/switch/html
      * @param string $title 标题
      * @param array $list 列表
-     * @author 蔡伟明 <314013107@qq.com>
      * @return $this|array
      */
     public function addBlock($type = '', $title = '', $list = [])

@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\home;
 
@@ -21,7 +15,6 @@ class Common extends Home
 {
     /**
      * 初始化方法
-     * @author 蔡伟明 <314013107@qq.com>
      */
     protected function initialize()
     {
@@ -37,7 +30,6 @@ class Common extends Home
 
     /**
      * 获取导航
-     * @author 蔡伟明 <314013107@qq.com>
      */
     private function getNav()
     {
@@ -72,7 +64,6 @@ class Common extends Home
 
     /**
      * 获取滚动图片
-     * @author 蔡伟明 <314013107@qq.com>
      */
     private function getSlider()
     {
@@ -81,7 +72,6 @@ class Common extends Home
 
     /**
      * 获取在线客服
-     * @author 蔡伟明 <314013107@qq.com>
      */
     private function getSupport()
     {

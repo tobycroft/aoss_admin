@@ -1,18 +1,12 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace app\cms\admin;
 
 use app\admin\controller\Admin;
-use app\common\builder\ZBuilder;
-use app\cms\model\Model as DocumentModel;
 use app\admin\model\Menu as MenuModel;
+use app\cms\model\Model as DocumentModel;
+use app\common\builder\ZBuilder;
 use think\Db;
 use think\facade\Cache;
 
@@ -24,7 +18,6 @@ class Model extends Admin
 {
     /**
      * 内容模型列表
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function index()
     {
@@ -64,7 +57,6 @@ class Model extends Admin
 
     /**
      * 新增内容模型
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -139,7 +131,6 @@ class Model extends Admin
     /**
      * 编辑内容模型
      * @param null $id 模型id
-     * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      * @throws \think\Exception
      */
@@ -191,7 +182,6 @@ class Model extends Admin
     /**
      * 删除内容模型
      * @param null $ids 内容模型id
-     * @author 蔡伟明 <314013107@qq.com>
      * @throws \think\Exception
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException

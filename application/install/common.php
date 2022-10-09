@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 use think\facade\Env;
 
@@ -260,7 +254,6 @@ function show_msg($msg, $class = ''){
  * 显示进度
  * @param $msg
  * @param string $class
- * @author 蔡伟明 <314013107@qq.com>
  */
 function show_progress($msg, $class = ''){
     echo "<script type=\"text/javascript\">show_progress(\"{$msg}\", \"{$class}\")</script>";

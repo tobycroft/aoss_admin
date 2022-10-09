@@ -1,11 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2019 广东卓锐软件有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
+
 
 namespace plugins\HelloWorld;
 
@@ -14,7 +8,6 @@ use app\common\controller\Plugin;
 /**
  * 演示插件
  * @package plugin\HelloWorld
- * @author 蔡伟明 <314013107@qq.com>
  */
 class HelloWorld extends Plugin
 {
@@ -25,21 +18,20 @@ class HelloWorld extends Plugin
         // 插件名[必填]
         'name'        => 'HelloWorld',
         // 插件标题[必填]
-        'title'       => '你好，世界',
+        'title' => '你好，世界',
         // 插件唯一标识[必填],格式：插件名.开发者标识.plugin
-        'identifier'  => 'helloworld.ming.plugin',
+        'identifier' => 'helloworld.ming.plugin',
         // 插件图标[选填]
-        'icon'        => 'fa fa-fw fa-globe',
+        'icon' => 'fa fa-fw fa-globe',
         // 插件描述[选填]
         'description' => '这是一个演示插件，会在每个页面生成一个提示“Hello World”。您可以查看源码，里面包含了绝大部分插件所用到的方法，以及能做的事情。',
         // 插件作者[必填]
-        'author'      => '蔡伟明',
         // 作者主页[选填]
-        'author_url'  => 'http://www.dolphinphp.com',
+        'author_url' => 'http://www.thinkphp.cn',
         // 插件版本[必填],格式采用三段式：主版本号.次版本号.修订版本号
-        'version'     => '1.0.0',
+        'version' => '1.0.0',
         // 是否有后台管理功能
-        'admin'       => '1',
+        'admin' => '1',
     ];
 
     /**
@@ -183,7 +175,6 @@ class HelloWorld extends Plugin
     /**
      * page_tips钩子方法
      * @param $params
-     * @author 蔡伟明 <314013107@qq.com>
      */
     public function pageTips($params)
     {
@@ -197,7 +188,6 @@ class HelloWorld extends Plugin
      * 安装方法必须实现
      * 一般只需返回true即可
      * 如果安装前有需要实现一些业务，可在此方法实现
-     * @author 蔡伟明 <314013107@qq.com>
      * @return bool
      */
     public function install(){
@@ -208,7 +198,6 @@ class HelloWorld extends Plugin
      * 卸载方法必须实现
      * 一般只需返回true即可
      * 如果安装前有需要实现一些业务，可在此方法实现
-     * @author 蔡伟明 <314013107@qq.com>
      * @return bool
      */
     public function uninstall(){
