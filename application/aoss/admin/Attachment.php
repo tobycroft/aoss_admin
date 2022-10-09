@@ -43,6 +43,7 @@ class Attachment extends Admin
                 ['ext', 'ext'],
                 ['width', 'width'],
                 ['height', 'height'],
+                ['duration_str', 'duration_str'],
             ])
             ->addColumn('right_button', '操作', 'btn')
             ->addRightButton('edit') // 添加编辑按钮
