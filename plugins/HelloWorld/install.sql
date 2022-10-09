@@ -14,7 +14,7 @@ CREATE TABLE `dolphin_plugin_hello` (
   `said` text NOT NULL COMMENT '名言',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of dolphin_plugin_hello
