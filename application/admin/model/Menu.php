@@ -163,8 +163,6 @@ class Menu extends Model
         $controller = $controller == '' ? request()->controller() : $controller;
         $cache_tag = strtolower('_sidebar_menus_' . $module . '_' . $controller) . '_role_' . session('user_auth.role');
         $menus = cache($cache_tag);
-//        var_dump($controller);
-//        exit();
         if (!$menus) {
             // 获取当前节点地址
             $location = self::getLocation($id);
