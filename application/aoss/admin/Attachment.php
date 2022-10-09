@@ -41,6 +41,8 @@ class Attachment extends Admin
                 ['md5', 'md5'],
                 ['size', 'size'],
                 ['ext', 'ext'],
+                ['width', 'width'],
+                ['height', 'height'],
             ])
             ->addColumn('right_button', '操作', 'btn')
             ->addRightButton('edit') // 添加编辑按钮
