@@ -36,6 +36,8 @@ class Attachment extends Admin
             ->addColumns([
                 ['id', 'ID'],
                 ['token', 'Token'],
+                ['name', 'name'],
+                ['path', 'path'],
             ])
             ->addColumn('right_button', '操作', 'btn')
             ->addRightButton('edit') // 添加编辑按钮
