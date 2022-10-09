@@ -28,7 +28,6 @@ class Project extends Admin
     {
         // 获取排序
         $order = $this->getOrder();
-// 读取用户数据
         $data_list = ProjectModel::order($order)
             ->paginate();
         $page = $data_list->render();
