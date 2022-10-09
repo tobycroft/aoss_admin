@@ -36,7 +36,7 @@ class Project extends Admin
             ->addOrder('id')
             ->addColumns([
                 ['id', 'ID'],
-                ['type', '类型', 'select', "", "", ["all" => "本地+OSS", "local" => "仅本地", "oss" => "仅oss"]],
+                ['type', '类型', 'select', "", ["all" => "本地+OSS", "local" => "仅本地", "oss" => "仅oss"]],
             ])
             ->setRowList($data_list) // 设置表格数据
             ->setPages($page)
