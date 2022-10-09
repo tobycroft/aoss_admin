@@ -5,8 +5,6 @@ namespace app\parentschool\admin;
 
 use app\admin\controller\Admin;
 use app\common\builder\ZBuilder;
-use app\parentschool\model\ParentModel;
-use app\parentschool\model\IndexParamModel;
 use app\user\model\Role;
 use think\Db;
 use think\facade\Hook;
